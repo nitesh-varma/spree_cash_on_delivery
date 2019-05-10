@@ -1,6 +1,8 @@
 class Spree::PaymentMethod::CashOnDelivery < Spree::PaymentMethod
 
-    preference :fee, :float, default: 0.0
+    def preferred_fee
+      0
+    end
 
     def payment_profiles_supported?
       true # we want to show the confirm step.

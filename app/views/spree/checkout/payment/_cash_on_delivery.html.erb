@@ -3,7 +3,7 @@
   <blockquote>
     <p><strong><%= t('cash_on_delivery.views.payment.concept') %></strong>: <%= @order.number %></p>
     <p><strong><%= t('cash_on_delivery.views.payment.amount') %></strong>: <%= @order.display_total %></p>
-    <% if payment_method.preferred_fee.present? %>
+    <% if payment_method.preferred_fee.present? && payment_method.preferred_fee > 0 %>
         <p><strong><%= t('cash_on_delivery.views.payment.extra', :extra => "#{payment_method.preferred_fee}") %></strong>
     <% end %>
   </blockquote>
