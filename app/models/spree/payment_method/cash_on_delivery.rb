@@ -9,7 +9,7 @@ class Spree::PaymentMethod::CashOnDelivery < Spree::PaymentMethod
     end
 
     def post_create(payment)
-      return false if preferred_fee > 0 && fee_exists?(payment)
+      return false if preferred_fee == 0 && fee_exists?(payment)
       Spree::Adjustment.create!(
           amount: self.preferred_fee,
           order: payment.order,
